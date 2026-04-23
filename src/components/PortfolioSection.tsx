@@ -37,6 +37,13 @@ const categories = [
     image: 'https://cdn.poehali.dev/projects/2ce4a918-96ba-45a4-9c76-319fab94ae5c/files/2cc5d10b-6ad6-4cae-aa40-675403272813.jpg',
     count: '40+ работ',
   },
+  {
+    id: 'packaging',
+    title: 'Дизайн упаковки',
+    description: 'Упаковка для косметики, еды, товаров — от идеи до макета',
+    image: 'https://cdn.poehali.dev/projects/2ce4a918-96ba-45a4-9c76-319fab94ae5c/files/838a4160-44f6-46cd-a723-6339960cd008.jpg',
+    count: '10+ работ',
+  },
 ];
 
 export default function PortfolioSection() {
