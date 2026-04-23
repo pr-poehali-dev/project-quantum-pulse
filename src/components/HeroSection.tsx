@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 const images = [
-  'https://cdn.poehali.dev/templates/creative-portfolio-ru/gallery-2.jpg',
-  'https://cdn.poehali.dev/templates/creative-portfolio-ru/gallery-1.jpg',
+  'https://cdn.poehali.dev/projects/2ce4a918-96ba-45a4-9c76-319fab94ae5c/files/ce43a834-38ed-4654-b637-7aa45fe701c0.jpg',
+  'https://cdn.poehali.dev/projects/2ce4a918-96ba-45a4-9c76-319fab94ae5c/files/5bdc1cd3-e6b7-49ba-b14d-35a6a1716233.jpg',
+  'https://cdn.poehali.dev/projects/2ce4a918-96ba-45a4-9c76-319fab94ae5c/files/1ee7b0d5-1c87-4065-9beb-78d3cd71b3fd.jpg',
   'https://cdn.poehali.dev/templates/creative-portfolio-ru/gallery-4.jpg',
-  'https://cdn.poehali.dev/templates/creative-portfolio-ru/gallery-5.jpg',
 ];
 
 export default function HeroSection() {
@@ -53,12 +53,15 @@ export default function HeroSection() {
                 isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
               )}
             >
-              <div className="relative h-48 w-48 overflow-hidden rounded-full border-4 border-white shadow-2xl md:h-64 md:w-64">
+              <div className="relative h-48 w-48 overflow-hidden rounded-full border-4 border-white/80 shadow-2xl md:h-64 md:w-64">
                 <img
                   src="https://cdn.poehali.dev/templates/creative-portfolio-ru/portrait.jpg"
-                  alt="Креативный специалист"
+                  alt="Графический дизайнер"
                   className="h-full w-full object-cover"
                 />
+              </div>
+              <div className="absolute -bottom-2 -right-2 bg-white text-black text-xs font-semibold px-3 py-1 tracking-widest uppercase shadow">
+                5+ лет
               </div>
             </div>
 
@@ -70,12 +73,29 @@ export default function HeroSection() {
             >
               <div className="space-y-4">
                 <p className="text-3xl font-light text-white md:text-4xl lg:text-5xl">
-                  Алексей Иванов
+                  Графический дизайнер
                 </p>
                 <p className="text-xl font-light text-white/80 md:text-2xl">
-                  Креативный директор | Дизайнер
+                  Логотипы · Полиграфия · Digital-реклама
                 </p>
-                <div className="flex gap-6 pt-4">
+                <p className="text-base font-light text-white/60 md:text-lg max-w-lg pt-2">
+                  5+ лет опыта. Создаю визуальные решения, которые привлекают внимание и работают на бизнес-цели
+                </p>
+                <div className="flex flex-wrap gap-4 pt-4">
+                  <a
+                    href="#portfolio"
+                    className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 text-sm font-medium tracking-widest uppercase hover:bg-white/90 transition-colors"
+                  >
+                    Портфолио
+                  </a>
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 border border-white/50 text-white px-6 py-3 text-sm font-medium tracking-widest uppercase hover:border-white hover:bg-white/10 transition-colors"
+                  >
+                    Связаться
+                  </a>
+                </div>
+                <div className="flex gap-6 pt-2">
                   <a
                     href="https://t.me/"
                     target="_blank"
