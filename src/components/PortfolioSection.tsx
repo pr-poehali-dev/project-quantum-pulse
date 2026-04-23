@@ -69,47 +69,10 @@ const categories = [
 
 export default function PortfolioSection() {
   const [hovered, setHovered] = useState<string | null>(null);
-  const [workHovered, setWorkHovered] = useState<string | null>(null);
 
   return (
     <section id="portfolio" className="bg-black py-24">
       <div className="container mx-auto px-8 md:px-16">
-
-        {/* Галерея работ */}
-        <div className="mb-24">
-          <div className="mb-12">
-            <p className="text-xs tracking-[0.3em] uppercase text-white/40 mb-4">Избранные работы</p>
-            <h2 className="text-3xl font-light text-white md:text-4xl">Из портфолио</h2>
-          </div>
-          <div className="grid grid-cols-1 gap-px bg-white/10 md:grid-cols-3">
-            {works.map((work) => (
-              <div
-                key={work.id}
-                className="relative overflow-hidden bg-black cursor-pointer"
-                onMouseEnter={() => setWorkHovered(work.id)}
-                onMouseLeave={() => setWorkHovered(null)}
-              >
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={work.image}
-                    alt={work.title}
-                    className={cn(
-                      'h-full w-full object-cover transition-transform duration-700',
-                      workHovered === work.id ? 'scale-105' : 'scale-100'
-                    )}
-                  />
-                </div>
-                <div className={cn(
-                  'absolute inset-0 bg-black/60 flex flex-col justify-end p-6 transition-opacity duration-300',
-                  workHovered === work.id ? 'opacity-100' : 'opacity-0'
-                )}>
-                  <p className="text-xs tracking-widest uppercase text-white/50 mb-1">{work.category}</p>
-                  <p className="text-lg font-light text-white">{work.title}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* Категории */}
         <div className="mb-16">
