@@ -1,6 +1,27 @@
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 
+const works = [
+  {
+    id: 'w1',
+    title: 'XCar — рекламный баннер',
+    category: 'Digital-баннеры',
+    image: 'https://cdn.poehali.dev/projects/2ce4a918-96ba-45a4-9c76-319fab94ae5c/bucket/b55e3f30-d865-4654-b839-b8d117739913.png',
+  },
+  {
+    id: 'w2',
+    title: 'Меню кофейни',
+    category: 'Полиграфия',
+    image: 'https://cdn.poehali.dev/projects/2ce4a918-96ba-45a4-9c76-319fab94ae5c/bucket/c8d671cf-2700-43f7-99fa-9b7337e7bd2c.png',
+  },
+  {
+    id: 'w3',
+    title: 'Меню вафельной',
+    category: 'Полиграфия',
+    image: 'https://cdn.poehali.dev/projects/2ce4a918-96ba-45a4-9c76-319fab94ae5c/bucket/da89f6c6-e19d-4eb2-9439-5781ed21c24b.jpeg',
+  },
+];
+
 const categories = [
   {
     id: 'logos',
@@ -48,10 +69,49 @@ const categories = [
 
 export default function PortfolioSection() {
   const [hovered, setHovered] = useState<string | null>(null);
+  const [workHovered, setWorkHovered] = useState<string | null>(null);
 
   return (
     <section id="portfolio" className="bg-black py-24">
       <div className="container mx-auto px-8 md:px-16">
+
+        {/* Галерея работ */}
+        <div className="mb-24">
+          <div className="mb-12">
+            <p className="text-xs tracking-[0.3em] uppercase text-white/40 mb-4">Избранные работы</p>
+            <h2 className="text-3xl font-light text-white md:text-4xl">Из портфолио</h2>
+          </div>
+          <div className="grid grid-cols-1 gap-px bg-white/10 md:grid-cols-3">
+            {works.map((work) => (
+              <div
+                key={work.id}
+                className="relative overflow-hidden bg-black cursor-pointer"
+                onMouseEnter={() => setWorkHovered(work.id)}
+                onMouseLeave={() => setWorkHovered(null)}
+              >
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={work.image}
+                    alt={work.title}
+                    className={cn(
+                      'h-full w-full object-cover transition-transform duration-700',
+                      workHovered === work.id ? 'scale-105' : 'scale-100'
+                    )}
+                  />
+                </div>
+                <div className={cn(
+                  'absolute inset-0 bg-black/60 flex flex-col justify-end p-6 transition-opacity duration-300',
+                  workHovered === work.id ? 'opacity-100' : 'opacity-0'
+                )}>
+                  <p className="text-xs tracking-widest uppercase text-white/50 mb-1">{work.category}</p>
+                  <p className="text-lg font-light text-white">{work.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Категории */}
         <div className="mb-16">
           <p className="text-xs tracking-[0.3em] uppercase text-white/40 mb-4">Портфолио</p>
           <h2 className="text-3xl font-light text-white md:text-4xl">Категории работ</h2>
